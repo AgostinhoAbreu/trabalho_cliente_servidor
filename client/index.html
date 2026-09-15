@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciador de Arquivos</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fonte Inter e Ícones Lucide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Notificação Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <div class="app-container">
+    
+    <!-- Barra Lateral (Sidebar) -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <i data-lucide="folder-git-2" class="brand-icon"></i>
+          <span>FileManager</span>
+        </div>
+        <button id="btn-novo" class="btn btn-primary btn-sm">
+          <i data-lucide="plus"></i> Novo
+        </button>
+      </div>
+
+      <div class="search-box">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" id="search-input" placeholder="Buscar arquivo..." />
+      </div>
+
+      <div class="file-list-container">
+        <div class="list-title">Arquivos no Servidor</div>
+        <ul id="file-list" class="file-list">
+          <!-- Lista dinâmica inserida via JS -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Área Principal do Editor -->
+    <main class="main-content">
+      <header class="editor-header">
+        <div class="file-info">
+          <i data-lucide="file-text" class="file-icon"></i>
+          <input type="text" id="file-name-input" placeholder="Nome do arquivo (ex: documento.txt)" />
+          <span id="badge-mode" class="badge badge-create">Novo Arquivo</span>
+        </div>
+        <div class="editor-actions">
+          <button id="btn-deletar" class="btn btn-danger hidden">
+            <i data-lucide="trash-2"></i> Excluir
+          </button>
+          <button id="btn-salvar" class="btn btn-success">
+            <i data-lucide="save"></i> Salvar
+          </button>
+        </div>
+      </header>
+
+      <section class="editor-body">
+        <textarea id="file-content-input" placeholder="Digite o conteúdo do seu arquivo aqui..." spellcheck="false"></textarea>
+      </section>
+      
+      <footer class="editor-footer">
+        <span id="char-count">0 caracteres</span>
+        <span id="server-status" class="status-online"><i data-lucide="wifi"></i> Servidor Conectado</span>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
