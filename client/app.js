@@ -65,7 +65,6 @@ async function salvarArquivo() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: conteudo })
       });
-      alert('Arquivo atualizado com sucesso!');
     } else {
       // Criar (POST)
       await fetch(`${API_URL}/files`, {
@@ -73,7 +72,6 @@ async function salvarArquivo() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: nome, content: conteudo })
       });
-      alert('Arquivo criado com sucesso!');
     }
 
     limparFormulario();

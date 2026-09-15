@@ -126,6 +126,5 @@ button {
 .btn-perigo:hover {
   background-color: #c0392b;
 }
-}
 .toast.success { border-left-color: var(--success); }
 .toast.error { border-left-color: var(--danger); }
